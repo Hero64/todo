@@ -3,7 +3,7 @@
         <i class="ion-ios-paw"></i>
         <p class="description" @click="onViewTask()">{{ task.description }}</p>
         <span class="date">{{ task.date }}</span>
-        <i class="remove-task ion-ios-close-empty" @click="onDelete()"></i>
+        <i class="remove-task ion-ios-close-empty" @click="onRemove()"></i>
     </div>
 </template>
 <style lang="css">
@@ -50,10 +50,10 @@
         props: ['task'],
         methods: {
             onViewTask: function() {
-                alert('hola mundo');
+                //alert('hola mundo');
             },
-            onDelete: function() {
-                alert('mucha suerte');
+            onRemove: function() {
+                this.$emit('remove-task', this.task);
             }
         }
     }

@@ -10,9 +10,10 @@
         <div class="task-container">
             <div v-dragula="dragula-text"
                 bag="first-bag">
-                <div v-for="task in tasks">
-                    <task :task="task"></task>
-                </div>
+                    <task v-for="task in tasks"
+                          :task="task"
+                          @remove-task="removeTask"
+                    ></task>
             </div>
         </div>
     </div>
@@ -87,6 +88,12 @@
     export default {
         components: {
             'task': require('./Task.vue')
+        },
+        methods: {
+            removeTask: function(task) {
+                var index = this.tasks.indexOf(task);
+                this.tasks.splice(index, 1);
+            }
         },
         data: function() {
             return {

@@ -7695,10 +7695,14 @@ body, html {
 
 header {
   box-shadow: 0 0 3px #aaa;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index: 1;
 }
 
 section {
-  padding: 25px;
+  padding: 80px 25px 25px 25px;
 }
 
 .add-task {
